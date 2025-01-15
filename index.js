@@ -80,9 +80,6 @@ exports.uploadImageToS3 = (req, res) => {
         if (!uploads?.file)
           return res.status(400).send(JSON.stringify({'success': false, 'message': "Please provide 'file' in form-data"}))
 
-        // let data = {}
-        // if (image_url) data.image_url_size = await getImageSize({image_url})
-        // if (image_file) data.image_file_size = await getImageSize({image_file})
         const filename = await s3UploadObject(uploads.file)
 
         await getPresignedUrl(filename)
@@ -105,7 +102,6 @@ const s3UploadObject = (filePath) => {
   return new Promise((resolve, reject) => {
     console.log("filePath --> ", filePath)
     
-    // const filename = `file-${Date.now()}${path.extname(filePath)}`;
     const filename = path.basename(filePath);
 
     const uploadParams = {
