@@ -17,6 +17,11 @@ As we know, making changes directly in Google Cloud Functions can be time-consum
 
 2. **Create a `.env` File**:
    Add all required environment variables in the `.env` file.
+   ```
+   AWS_ACCESS_KEY_ID=your-access-key
+   AWS_SECRET_ACCESS_KEY=your-secret-key
+   AWS_S3_BUCKET_NAME=your-bucket-name
+   ```
 
 3. **Run the Development Server**:
    ```bash
